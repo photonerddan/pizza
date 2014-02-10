@@ -5,6 +5,13 @@ describe Pizza do
     expect(Pizza).to be_a(Class)
   end
 
+  it "has a method for determining if pizza is vegetarian" do
+    pizza1 = Pizza.new([Topping.new('cheese', vegetarian: true), Topping.new('olives', vegetarian: true), Topping.new('onion', vegetarian: true)])
+    pizza2 = Pizza.new([Topping.new('cheese', vegetarian: true), Topping.new('bacon', vegetarian: false), Topping.new('onion', vegetarian: true)])
+    expect(pizza1.vegetarian?).to eq(true)
+    expect(pizza2.vegetarian?).to eq(false)
+  end
+
   describe '.initialize' do
     it 'records all of the toppings' do
       toppings = [
