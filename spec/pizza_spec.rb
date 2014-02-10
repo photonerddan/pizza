@@ -19,7 +19,7 @@ describe Pizza do
     it 'defaults pizza to cheese if no toppings' do
       pizza = Pizza.new
 
-      expect(pizza.toppings).to eq('cheese')
+      expect(pizza.toppings.name).to eq('cheese')
     end
   end
 end

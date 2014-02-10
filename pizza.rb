@@ -1,9 +1,13 @@
 class Pizza
 
-    attr_reader :toppings
+  attr_reader :toppings
 
-    def initialize(toppings)
-      @toppings = toppings
+  def initialize(toppings = nil)
+    if toppings.nil?
+      @toppings = Topping.new('cheese', vegetarian: false)
+    else
+       @toppings = toppings
+    end
   end
 end
 
