@@ -4,7 +4,7 @@ class Pizza
 
   def initialize(toppings = nil)
     if toppings.nil?
-      @toppings = Topping.new('cheese', vegetarian: false)
+      @toppings = [Topping.new('cheese', vegetarian: false)]
     else
        @toppings = toppings
     end

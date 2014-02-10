@@ -12,6 +12,17 @@ describe Pizza do
     expect(pizza2.vegetarian?).to eq(false)
   end
 
+  it "has a method for adding toppings" do
+    pizza = Pizza.new()
+
+    expect(pizza.toppings.count).to eq(1)
+
+    pizza.add_topping(Topping.new('bacon', vegetarian: false))
+
+    expect(pizza.toppings.count).to eq(2)
+  end
+
+
   describe '.initialize' do
     it 'records all of the toppings' do
       toppings = [
