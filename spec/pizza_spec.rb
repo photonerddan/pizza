@@ -15,6 +15,12 @@ describe Pizza do
 
       expect(pizza.toppings).to eq(toppings)
     end
+
+    it 'defaults pizza to cheese if no toppings' do
+      pizza = Pizza.new
+
+      expect(pizza.toppings).to eq('cheese')
+    end
   end
 end
 
