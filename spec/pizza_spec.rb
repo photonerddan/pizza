@@ -33,6 +33,12 @@ describe Pizza do
     expect(pizza.delivery_time).to eq(time + 30*60)
   end
 
+  it "can be late" do
+    pizza = Pizza.new
+    pizza.deliver!
+    time = Time.now + 31 * 60
+    expect(pizza.late?(time)).to eq(true)
+  end
 
   describe '.initialize' do
     it 'records all of the toppings' do

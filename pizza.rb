@@ -21,6 +21,10 @@ class Pizza
   def deliver!(time = Time.now)
     @delivery_time = time + 30*60
   end
+
+  def late?(time = Time.now)
+    @delivery_time < time
+  end
 end
 
 class Topping
