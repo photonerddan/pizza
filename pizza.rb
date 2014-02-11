@@ -1,6 +1,6 @@
 class Pizza
 
-  attr_reader :toppings
+  attr_reader :toppings, :delivery_time
 
   def initialize(toppings = nil)
     if toppings.nil?
@@ -12,6 +12,14 @@ class Pizza
 
   def vegetarian?
     @toppings.all? {|topping| topping.vegetarian}
+  end
+
+  def add_topping(*toppings)
+    toppings.each{|x| @toppings << x}
+  end
+
+  def deliver!(time = Time.now)
+    @delivery_time = time + 30*60
   end
 end
 

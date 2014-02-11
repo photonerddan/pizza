@@ -20,6 +20,17 @@ describe Pizza do
     pizza.add_topping(Topping.new('bacon', vegetarian: false))
 
     expect(pizza.toppings.count).to eq(2)
+
+    pizza.add_topping(Topping.new('bacon', vegetarian: false),Topping.new('bacon', vegetarian: false),Topping.new('bacon', vegetarian: false))
+
+    expect(pizza.toppings.count).to eq(5)
+  end
+
+  it "can be delivered" do
+    pizza = Pizza.new
+    time = Time.now
+    pizza.deliver!(time)
+    expect(pizza.delivery_time).to eq(time + 30*60)
   end
 
 
@@ -37,7 +48,7 @@ describe Pizza do
     it 'defaults pizza to cheese if no toppings' do
       pizza = Pizza.new
 
-      expect(pizza.toppings.name).to eq('cheese')
+      expect(pizza.toppings[0].name).to eq('cheese')
     end
   end
 end
